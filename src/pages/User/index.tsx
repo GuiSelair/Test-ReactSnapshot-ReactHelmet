@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 // import { Container } from './styles';
 
@@ -27,10 +28,15 @@ const User: React.FC = () => {
       setUser(userData);
     };
     requestUser();
-  }, []);
+  }, [id]);
 
   return (
     <>
+      <Helmet>
+        <title>Usuários</title>
+        <meta name="description" content="Usuários cadastrados" />
+      </Helmet>
+
       <h1>{user.name}</h1>
       <h3>{user.email}</h3>
     </>
